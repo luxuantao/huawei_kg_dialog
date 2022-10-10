@@ -1,0 +1,7 @@
+transformers
+torch
+sentencepiece
+pytorch-crf
+elasticsearch
+jieba
+scikit-learn

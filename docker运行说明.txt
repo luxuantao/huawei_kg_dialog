@@ -1,0 +1,23 @@
+# 镜像的压缩包huawei_docker.tar
+
+docker load -i huawei_docker.tar huawei_competition:1.0  # 导入docker镜像
+
+docker run -it --gpus all huawei_competition:1.0
+
+cd opt/elasticsearch-7.6.2
+
+su elsearch  # 切换账户启动ES
+
+./bin/elasticsearch &  # 回车
+
+# ctrl+D回到root
+
+cd ../Knowledge-driven-spoken-dialogue/
+
+python3 KnowledgeSelection/inference.py  # 启动知识选择模块
+
+python3 Generation/mt5.py  # 启动生成模块
+
+python3 get_submit_file.py  # 生成提交文件
+
+# 最终在当前目录下得到result.json文件
